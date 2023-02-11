@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import Chat from "./components/Chat";
 
 let socket;
-// const CONNECTION_PORT = "localhost:3001/";
+const CONNECTION_PORT = "localhost:3001/";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
@@ -14,9 +14,9 @@ function App() {
   const [messageList, setMessageList] = useState([]);
 
   useEffect(() => {
-    socket = io();
+    socket = io(CONNECTION_PORT);
     //eslint-disable-next-line
-  }, []);
+  }, [CONNECTION_PORT]);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
