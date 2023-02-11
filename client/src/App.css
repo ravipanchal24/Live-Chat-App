@@ -1,0 +1,175 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(to right, #E55D87, #5FC3E4);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5rem;
+}
+
+::placeholder{
+  color: black;
+}
+
+.inputs{
+  display: block;
+}
+
+.login input{
+ margin: 10px;
+ padding: 10px;
+ width: fit-content;
+ height: 50px;
+ border: none;
+ border-bottom: 2px solid blue;
+ outline-style: none;
+ background-color: transparent;
+ color: black;
+ font-size: 15px;
+}
+
+.login input:focus{
+  outline: none;
+}
+
+.login button{
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+width: 150px;
+padding: 15px;
+margin: 20px auto;
+border: none;
+background: linear-gradient(to left, #E55D87, #5FC3E4);
+border-radius: 5px;
+color: black;
+font-size: 15px;
+transition: transform ease-in-out 100ms;
+}
+
+.login button:hover{
+  cursor: pointer;
+  transform: scale(1.01,1.01);
+}
+
+.chat-container{
+  margin: 2rem auto;
+  width: 500px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  flex-direction: column;
+  border-radius: 20px;
+  background: #2a2730;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  color: white;
+}
+
+.chat-header{
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.chat-header p{
+  font-size: 15px;
+  color: darkcyan;
+}
+
+.chat-body{
+  min-height: 400px;
+  width: 100%;
+  margin: 1rem;
+}
+
+.chat-body p{
+  font-size: 1.2rem;
+  padding: 7px 10px;
+  margin: 7px auto;
+  width: 95%;
+  border-radius: 5px;
+  color: bisque;
+}
+
+.chat-footer{
+  margin: 1rem;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-footer input{
+  margin: 10px;
+  padding: 10px;
+  width: fit-content;
+  height: 50px;
+  border: 2px solid #0091ff;
+  background-color: #2a2730;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  width: 90%;
+ }
+ 
+ .chat-footer input:focus{
+   outline: none;
+ }
+
+ .chat-footer input::placeholder{
+  color:white;
+ }
+
+ .chat-footer button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+ }
+ 
+.fa-arrow-right:hover{
+  color: lime;
+  border: none;
+ }
+
+ .chat-footer i{
+  padding: 2px;
+ }
+
+ .fa-arrow-right{
+  color: green;
+ }
+
+ #left{
+    text-align: left;
+  background-color: rgb(202, 164, 94);
+  color: indigo;
+ }
+
+ #right{
+  text-align: right;
+  background-color: #2d9b8c;
+  color: gold;
+ }
+
+ span{
+  color: black;
+ }
