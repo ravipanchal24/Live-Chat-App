@@ -1,10 +1,10 @@
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import io from "socket.io-client";
-import React, { useEffect, useState } from "react";
 import Chat from "./components/Chat";
 
 let socket;
-const CONNECTION_PORT = "live-chat-q93emfho5-ravipanchal24.vercel.app/";
+const CONNECTION_PORT = "localhost:3001/";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
@@ -13,14 +13,8 @@ function App() {
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
-  const setMessageFunc = (e) => {
-    setMessage(e.target.value);
-  };
-
-  const setMessageListFunc = () => { };
-
   useEffect(() => {
-    socket = io(CONNECTION_PORT);
+    socket = io();
     //eslint-disable-next-line
   }, [CONNECTION_PORT]);
 
@@ -87,8 +81,7 @@ function App() {
           room={room}
           message={message}
           messageList={messageList}
-          setMessageFunc={setMessageFunc}
-          setMessageListFunc={setMessageListFunc}
+          setMessage={setMessage}
           sendMessage={sendMessage}
         />
       )}

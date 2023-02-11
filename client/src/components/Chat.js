@@ -4,9 +4,8 @@ const Chat = (props) => {
     username,
     room,
     message,
-    setMessageFunc,
+    setMessage,
     messageList,
-    setMessageListFunc,
     sendMessage,
   } = props;
 
@@ -43,7 +42,7 @@ const Chat = (props) => {
           placeholder="Start Typing..."
           autoFocus
           onChange={(e) => {
-            setMessageFunc(e);
+            setMessage(e.target.value);
           }}
         />
         <button onClick={sendMessage} id="sendMessageButton">

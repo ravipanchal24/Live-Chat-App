@@ -4,12 +4,13 @@ const socket = require('socket.io');
 const cors = require('cors');
 const path = require('path');
 
-const port = process.env.port || 5000;
+const PORT = process.env.PORT || 3001;
+
 app.use(cors());
 app.use(express.json());
 
-const server = app.listen(port, () => {
-    console.log('Server running on port:', port);
+const server = app.listen(PORT, () => {
+    console.log('Server running on port:', PORT);
 });
 
 
