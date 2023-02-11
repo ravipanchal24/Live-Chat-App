@@ -26,15 +26,13 @@ const Chat = (props) => {
       <div className="chat-body">
         {messageList.map((msg, key) => (
           <p
+            key={key}
             className="messages"
             style={{ fontSize: "1rem" }}
             id={msg.author === username ? "right" : "left"}
           >
-            manish
-            <br></br>{" "}
-            <span style={{ fontSize: "1.3rem"}}>
-              {msg.message}
-            </span>
+            {msg.author}
+            <br></br> <span style={{ fontSize: "1.3rem" }}>{msg.message}</span>
           </p>
         ))}
       </div>
@@ -48,7 +46,7 @@ const Chat = (props) => {
             setMessageFunc(e);
           }}
         />
-        <button onClick={sendMessage} id='sendMessageButton'>
+        <button onClick={sendMessage} id="sendMessageButton">
           <i className="fa-solid fa-arrow-right fa-2x"></i>
         </button>
       </div>

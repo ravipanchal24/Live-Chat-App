@@ -6,7 +6,7 @@ import Chat from "./components/Chat";
 let socket;
 const CONNECTION_PORT = "localhost:3001/";
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
   const [room, setRoom] = useState("");
 
@@ -28,7 +28,7 @@ function App() {
     socket.on("receive_message", (data) => {
       setMessageList([...messageList, data]);
     });
-  }, []);
+  }, [messageList]);
 
   const connectToRoom = () => {
     if (username === "" || room === "") {
