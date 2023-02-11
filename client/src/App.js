@@ -4,8 +4,7 @@ import io from "socket.io-client";
 import Chat from "./components/Chat";
 
 let socket;
-// const CONNECTION_PORT = "https://live-chat-backend.onrender.com/";
-const CONNECTION_PORT = "localhost:3001/"
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
@@ -15,6 +14,7 @@ function App() {
 
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const CONNECTION_PORT = window.location.host === "localhost:3000" ? 'localhost:3001/' : 'https://live-chat-backend.onrender.com/'
 
   useEffect(() => {
     socket = io(CONNECTION_PORT);
