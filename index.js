@@ -4,7 +4,7 @@ const socket = require('socket.io');
 const cors = require('cors');
 const path = require('path');
 
-const port = 3001;
+const port = process.env.port || 5000;
 app.use(cors());
 app.use(express.json());
 
@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))); // to direct server to load index.html file when running in production 
 }
- 
+
 // To resolve CORS policy error
 const io = require('socket.io')(server, {
     cors: {
