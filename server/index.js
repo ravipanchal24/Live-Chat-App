@@ -4,10 +4,10 @@ const socket = require('socket.io');
 const cors = require('cors');
 const path = require('path');
 
-app.get('/' , (req,res)=>{
+app.get('/', (req, res) => {
     // Server will send GeeksforGeeks as response
-    res.send("Server up and running"); 
- })
+    res.send("Server up and running");
+})
 
 const PORT = process.env.PORT || 3001;
 
@@ -16,7 +16,7 @@ app.use(express.json());
 
 const server = app.listen(PORT, () => {
     console.log('Server running on port:', PORT);
-    server.res
+
 });
 
 
@@ -45,7 +45,12 @@ io.on('connection', (socket) => {
         socket.to(data.room).emit("receive_message", data.content);
     })
 
+    socket.on("user_typing", (data) => {
+        socket.to(data.room).emit("other_user_typing", data.sentence);
+    })
+
     socket.on('disconnect', () => {
         console.log('User Disconnected');
     })
+    1
 });

@@ -119,9 +119,7 @@ transition: transform ease-in-out 100ms;
   padding: 7px 10px;
   margin: 7px auto;
   width: 95%;
-  border-radius: 5px;
   color: bisque;
-  animation: fadein ease-in 700ms;
 }
 
 .chat-footer{
@@ -174,19 +172,40 @@ transition: transform ease-in-out 100ms;
  }
 
  .left{
+  animation: fadein ease-in 400ms;
     text-align: left;
   background-color: rgb(202, 164, 94);
   color: indigo;
+  border-top-left-radius: 20px;
  }
 
  .right{
   text-align: right;
   background-color: #2d9b8c;
   color: gold;
+  border-top-right-radius: 20px;
  }
 
  span{
   color: black;
+ }
+
+
+ .isTyping{
+  color: wheat;
+  font-size: 14px;
+ }
+
+ .header h3{
+  margin-bottom: 5px;
+ }
+
+ .visible{
+  visibility: visible;
+ }
+
+ .hidden{
+  visibility: hidden;
  }
 
 /* width */

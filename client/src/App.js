@@ -4,11 +4,14 @@ import io from "socket.io-client";
 import Chat from "./components/Chat";
 
 let socket;
-const CONNECTION_PORT = "https://live-chat-backend.onrender.com/";
+// const CONNECTION_PORT = "https://live-chat-backend.onrender.com/";
+const CONNECTION_PORT = "localhost:3001/"
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
   const [room, setRoom] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const [whoIsTyping, setWhoIsTyping] = useState('');
 
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
@@ -21,10 +24,24 @@ function App() {
   useEffect(() => {
     socket.on("receive_message", (data) => {
       setMessageList([...messageList, data]);
+      setIsTyping(false);
     });
     if (messageList.length)
       document.getElementById(`message-${messageList.length - 1}`).scrollIntoView();
   }, [messageList]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsTyping(false);
+    }, 5000);
+  }, [isTyping])
+
+  if (socket) {
+    socket.on("other_user_typing", (data) => {
+      setWhoIsTyping(data);
+      setIsTyping(true);
+    });
+  }
 
   const connectToRoom = () => {
     if (username === "" || room === "") {
@@ -88,6 +105,9 @@ function App() {
           messageList={messageList}
           setMessage={setMessage}
           sendMessage={sendMessage}
+          socket={socket}
+          isTyping={isTyping}
+          whoIsTyping={whoIsTyping}
         />
       )}
     </div>

@@ -7,12 +7,25 @@ const Chat = (props) => {
     setMessage,
     messageList,
     sendMessage,
+    socket,
+    whoIsTyping,
+    isTyping,
   } = props;
+
+  const object = {
+    room: room,
+    sentence: `${username} is typing...`,
+  };
 
   return (
     <div className="chat-container">
       <div className="chat-header">
-        <h3>Live Chat</h3>
+        <div className="header">
+          <h3>Live Chat</h3>
+          <div className={`isTyping ${isTyping ? "visible" : "hidden"}`}>
+            {whoIsTyping}
+          </div>
+        </div>
         <p>
           Username <br></br>
           {username}
@@ -26,7 +39,9 @@ const Chat = (props) => {
         {messageList.map((msg, key) => (
           <p
             key={key}
-            className={msg.author === username ? "messages right" : "messages left"}
+            className={
+              msg.author === username ? "messages right" : "messages left"
+            }
             style={{ fontSize: "1rem" }}
             id={`message-${key}`}
           >
@@ -43,10 +58,10 @@ const Chat = (props) => {
           autoFocus
           onChange={(e) => {
             setMessage(e.target.value);
-          }
-          }
+            socket.emit("user_typing", object);
+          }}
           onKeyDown={(e) => {
-            if (e.key === 'Enter') {
+            if (e.key === "Enter") {
               sendMessage(e);
             }
           }}
