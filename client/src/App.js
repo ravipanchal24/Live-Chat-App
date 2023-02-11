@@ -22,6 +22,8 @@ function App() {
     socket.on("receive_message", (data) => {
       setMessageList([...messageList, data]);
     });
+    if (messageList.length)
+      document.getElementById(`message-${messageList.length - 1}`).scrollIntoView();
   }, [messageList]);
 
   const connectToRoom = () => {
@@ -34,18 +36,20 @@ function App() {
   };
 
   const sendMessage = async (e) => {
-    e.preventDefault();
+    if (message !== '') {
+      e.preventDefault();
 
-    let messageContent = {
-      room: room,
-      content: {
-        author: username,
-        message: message,
-      },
-    };
-    await socket.emit("send_message", messageContent);
-    setMessageList([...messageList, messageContent.content]);
-    setMessage("");
+      let messageContent = {
+        room: room,
+        content: {
+          author: username,
+          message: message,
+        },
+      };
+      await socket.emit("send_message", messageContent);
+      setMessageList([...messageList, messageContent.content]);
+      setMessage("");
+    }
   };
 
   return (

@@ -26,9 +26,9 @@ const Chat = (props) => {
         {messageList.map((msg, key) => (
           <p
             key={key}
-            className="messages"
+            className={msg.author === username ? "messages right" : "messages left"}
             style={{ fontSize: "1rem" }}
-            id={msg.author === username ? "right" : "left"}
+            id={`message-${key}`}
           >
             {msg.author}
             <br></br> <span style={{ fontSize: "1.3rem" }}>{msg.message}</span>

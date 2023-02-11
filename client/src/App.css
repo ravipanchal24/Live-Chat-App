@@ -99,8 +99,19 @@ transition: transform ease-in-out 100ms;
   width: 100%;
   margin: 1rem;
   height: 0px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0.1;
+  }
+
+  100%{
+    opacity: 1;
+  }
+  
 }
 
 .chat-body p{
@@ -110,6 +121,7 @@ transition: transform ease-in-out 100ms;
   width: 95%;
   border-radius: 5px;
   color: bisque;
+  animation: fadein ease-in 700ms;
 }
 
 .chat-footer{
@@ -161,13 +173,13 @@ transition: transform ease-in-out 100ms;
   color: green;
  }
 
- #left{
+ .left{
     text-align: left;
   background-color: rgb(202, 164, 94);
   color: indigo;
  }
 
- #right{
+ .right{
   text-align: right;
   background-color: #2d9b8c;
   color: gold;
