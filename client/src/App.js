@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Chat from "./components/Chat";
 
 let socket;
-const CONNECTION_PORT = "localhost:3001/";
+const CONNECTION_PORT = "live-chat-q93emfho5-ravipanchal24.vercel.app/";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
