@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const socket = require('socket.io');
 const cors = require('cors');
+const path = require('path');
 
 const port = 3001;
 app.use(cors());
