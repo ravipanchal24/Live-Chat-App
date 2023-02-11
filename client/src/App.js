@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import Chat from "./components/Chat";
 
 let socket;
-const CONNECTION_PORT = "https://live-chat-backend.onrender.com";
+const CONNECTION_PORT = "https://live-chat-backend.onrender.com/";
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUserName] = useState("");
