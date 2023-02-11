@@ -4,6 +4,11 @@ const socket = require('socket.io');
 const cors = require('cors');
 const path = require('path');
 
+app.get('/' , (req,res)=>{
+    // Server will send GeeksforGeeks as response
+    res.send("Server up and running"); 
+ })
+
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
@@ -11,6 +16,7 @@ app.use(express.json());
 
 const server = app.listen(PORT, () => {
     console.log('Server running on port:', PORT);
+    server.res
 });
 
 
