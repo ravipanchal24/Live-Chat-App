@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))); // to direct server to load index.html file when running in production 
 }
-
+ 
 // To resolve CORS policy error
 const io = require('socket.io')(server, {
     cors: {
