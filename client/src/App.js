@@ -35,6 +35,7 @@ function App() {
 
   const sendMessage = async (e) => {
     e.preventDefault();
+
     let messageContent = {
       room: room,
       content: {

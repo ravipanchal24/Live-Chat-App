@@ -43,6 +43,12 @@ const Chat = (props) => {
           autoFocus
           onChange={(e) => {
             setMessage(e.target.value);
+          }
+          }
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              sendMessage(e);
+            }
           }}
         />
         <button onClick={sendMessage} id="sendMessageButton">
