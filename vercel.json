@@ -4,9 +4,10 @@
             
         }
     ,
-    "routes":
+    "routes":[
         {
             "src":"/(.*)",
             "dest":"/index.html"
         }
+    ]
 }
