@@ -263,7 +263,7 @@ transition: transform ease-in-out 100ms;
   {
     .chat-container{
       margin: 0;
-      height: 80vh;
+      height: 90vh;
       width: 100%;
       border-radius: 0;
     }
