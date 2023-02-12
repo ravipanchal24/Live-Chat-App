@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+html{
+  height: --webkit-fill-available;
+}
+
 body{
   background: linear-gradient(to right, #E55D87, #5FC3E4);
   font-family: 'Montserrat', sans-serif;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  height: --webkit-fill-available;
   height: 100vh;
 }
 
@@ -263,7 +267,7 @@ transition: transform ease-in-out 100ms;
   {
     .chat-container{
       margin: 0;
-      height: 90vh;
+      height: 100vh;
       width: 100%;
       border-radius: 0;
     }
