@@ -266,6 +266,11 @@ transition: transform ease-in-out 100ms;
       height: 100vh;
       width: 100%;
       border-radius: 0;
+
     }
+    .chat-footer{
+      margin: 0;
+    }
+    
   }
   
