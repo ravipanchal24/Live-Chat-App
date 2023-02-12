@@ -37,17 +37,35 @@ const Chat = (props) => {
       </div>
       <div className="chat-body">
         {messageList.map((msg, key) => (
-          <p
+          <div
             key={key}
-            className={
-              msg.author === username ? "messages right" : "messages left"
-            }
-            style={{ fontSize: "1rem" }}
-            id={`message-${key}`}
+            className={`chat-messages ${
+              msg.author === username
+                ? "chat-messages-right"
+                : "chat-messages-left"
+            }`}
           >
-            {msg.author === username ? 'You' : msg.author}
-            <br></br> <span style={{ fontSize: "1.3rem" }}>{msg.message}</span>
-          </p>
+            <p
+              className={`chat-username ${
+                msg.author === username
+                  ? "chat-username-right"
+                  : "chat-username-left"
+              }`}
+              id={`message-${key}`}
+            >
+              {msg.author === username ? "You" : msg.author}
+            </p>
+            <p
+              className={`chat-message ${
+                msg.author === username
+                  ? "chat-message-right"
+                  : "chat-message-left"
+              }`}
+            >
+              {msg.message}
+            </p>
+            
+          </div>
         ))}
       </div>
       <div className="chat-footer">

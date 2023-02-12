@@ -112,13 +112,56 @@ transition: transform ease-in-out 100ms;
   
 }
 
-.chat-body p{
-  font-size: 1.2rem;
-  padding: 7px 10px;
+.chat-messages{
+  background-color: #2d9b8c;
+  padding: 10px 20px;
   margin: 7px auto;
   width: 95%;
-  color: bisque;
 }
+
+.chat-messages-right{
+  text-align: right;
+  color: gold;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.chat-messages-left{
+  animation: fadein ease-in 400ms;
+    text-align: left;
+  background-color: rgb(202, 164, 94);
+  color: indigo;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+ }
+
+.chat-username{
+  font-size: 1rem;
+}
+
+.chat-username-right{
+  color: red;
+}
+
+.chat-username-left{
+  color: black;
+}
+
+.chat-message{
+  font-size: 1.2rem;
+  padding-top: 2px;
+}
+
+.chat-message-right{
+  color: blue;
+  text-align: left;
+  display: inline-block;
+  width: fit-content;
+}
+
+.chat-message-left{
+  color: green;
+} 
 
 .chat-footer{
   margin: 1rem;
@@ -168,28 +211,6 @@ transition: transform ease-in-out 100ms;
  .fa-arrow-right{
   color: green;
  }
-
- .left{
-  animation: fadein ease-in 400ms;
-    text-align: left;
-  background-color: rgb(202, 164, 94);
-  color: indigo;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
- }
-
- .right{
-  text-align: right;
-  background-color: #2d9b8c;
-  color: gold;
-  border-bottom-left-radius: 20px;
-  border-top-right-radius: 20px;
- }
-
- span{
-  color: black;
- }
-
 
  .isTyping{
   color: wheat;
