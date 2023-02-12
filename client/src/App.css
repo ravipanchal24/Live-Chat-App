@@ -69,10 +69,10 @@ transition: transform ease-in-out 100ms;
 .chat-container{
   margin: 2rem auto;
   width: 500px;
+  height: 90vh;
   padding: 1.5rem 1rem;
   display: flex;
   align-items: center;
-  justify-content: baseline;
   flex-direction: column;
   border-radius: 20px;
   background: #2a2730;
@@ -93,7 +93,6 @@ transition: transform ease-in-out 100ms;
 }
 
 .chat-body{
-  min-height: 400px;
   width: 100%;
   margin: 1rem;
   height: 0px;
@@ -220,7 +219,8 @@ transition: transform ease-in-out 100ms;
 
  .room-join-msg{
   color: wheat;
-  animation: fadeout 2000ms;
+  animation: fadeout 2500ms;
+  margin: 0;
  }
 
  .isTyping{
@@ -267,6 +267,10 @@ transition: transform ease-in-out 100ms;
       width: 100%;
       border-radius: 0;
 
+    }
+
+    .chat-body{
+      height: 100%;
     }
     .chat-footer{
       margin: 0;

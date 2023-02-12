@@ -37,7 +37,7 @@ const Chat = (props) => {
           {room}
         </p>
       </div>
-      <div className="chat-body">
+      <div className="chat-body" style={{height:'85%'}}>
         {messageList.map((msg, key) => (
           <div
             key={key}
