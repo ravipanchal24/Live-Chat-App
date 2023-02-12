@@ -35,9 +35,10 @@ const io = require('socket.io')(server, {
 // creates new connection from server side
 io.on('connection', (socket) => {
     console.log(socket.id);
-    socket.on('join_room', (data) => {
-        socket.join(data);
-        console.log('user joined room: ' + data);
+    socket.on('join_room', (room, username) => {
+        socket.join(room);
+        console.log(`${username} joined the room: ` + room);
+        socket.to(room).emit("user_joined_room_alert", username);
     });
 
     socket.on("send_message", (data) => {
@@ -48,7 +49,7 @@ io.on('connection', (socket) => {
     socket.on("user_typing", (data) => {
         console.log(data);
         socket.to(data.room).emit("other_user_typing", data.sentence);
-    }) 
+    })
 
     socket.on('disconnect', () => {
         console.log('User Disconnected');

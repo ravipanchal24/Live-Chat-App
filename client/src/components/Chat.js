@@ -10,6 +10,8 @@ const Chat = (props) => {
     socket,
     whoIsTyping,
     isTyping,
+    userJoined,
+    showUserJoined,
   } = props;
 
   const object = {
@@ -64,10 +66,12 @@ const Chat = (props) => {
             >
               {msg.message}
             </p>
-            
           </div>
         ))}
       </div>
+      {userJoined !== username && showUserJoined && (
+        <div className="room-join-msg">{userJoined} has joined the room</div>
+      )}
       <div className="chat-footer">
         <input
           type="text"
