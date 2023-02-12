@@ -5,7 +5,6 @@ const cors = require('cors');
 const path = require('path');
 
 app.get('/', (req, res) => {
-    // Server will send GeeksforGeeks as response
     res.send("Server up and running");
 })
 
@@ -33,6 +32,7 @@ const io = require('socket.io')(server, {
     }
 });
 
+// creates new connection from server side
 io.on('connection', (socket) => {
     console.log(socket.id);
     socket.on('join_room', (data) => {
@@ -48,7 +48,7 @@ io.on('connection', (socket) => {
     socket.on("user_typing", (data) => {
         console.log(data);
         socket.to(data.room).emit("other_user_typing", data.sentence);
-    })
+    }) 
 
     socket.on('disconnect', () => {
         console.log('User Disconnected');

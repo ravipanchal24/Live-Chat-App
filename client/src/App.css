@@ -7,14 +7,12 @@
 body{
   background: linear-gradient(to right, #E55D87, #5FC3E4);
   font-family: 'Montserrat', sans-serif;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;  
+  height: 100vh;
 }
 
-.App{
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .login{
   display: flex;
@@ -176,13 +174,15 @@ transition: transform ease-in-out 100ms;
     text-align: left;
   background-color: rgb(202, 164, 94);
   color: indigo;
-  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
  }
 
  .right{
   text-align: right;
   background-color: #2d9b8c;
   color: gold;
+  border-bottom-left-radius: 20px;
   border-top-right-radius: 20px;
  }
 
@@ -224,3 +224,16 @@ transition: transform ease-in-out 100ms;
   background: green;
   border-radius: 10px;
 }
+
+/* Media Query */
+
+@media screen and ( max-width: 500px)
+  {
+    .chat-container{
+      margin: 0;
+      height: 100vh;
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+  

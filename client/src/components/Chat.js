@@ -27,11 +27,11 @@ const Chat = (props) => {
           </div>
         </div>
         <p>
-          Username <br></br>
+          Username: <br></br>
           {username}
         </p>
         <p>
-          Room ID <br />
+          Room ID: <br />
           {room}
         </p>
       </div>
@@ -45,7 +45,7 @@ const Chat = (props) => {
             style={{ fontSize: "1rem" }}
             id={`message-${key}`}
           >
-            {msg.author}
+            {msg.author === username ? 'You' : msg.author}
             <br></br> <span style={{ fontSize: "1.3rem" }}>{msg.message}</span>
           </p>
         ))}
