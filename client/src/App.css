@@ -270,7 +270,7 @@ transition: transform ease-in-out 100ms;
     }
 
     .chat-body{
-      height: 100%;
+      height: 85%;
     }
     .chat-footer{
       margin: 0;
