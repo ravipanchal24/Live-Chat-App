@@ -52,7 +52,11 @@ io.on('connection', (socket) => {
     })
 
     socket.on('disconnect', () => {
-        console.log('User Disconnected');
+        console.log('User Disconnect');
     })
-    1
+
+    socket.on('disconnected', (room, username) => {
+        console.log( username + ' Disconnected from :' + room);
+        socket.to(room).emit("user_disconnect", username);
+    })
 });

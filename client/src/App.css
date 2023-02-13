@@ -17,7 +17,11 @@ body{
   height: --webkit-fill-available;
   height: 100vh;
 }
-
+.info{
+  background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
+  border-radius: 5px;
+  padding: 1rem;
+}
 .info p{
   text-align: center;
   margin: 10px auto;
