@@ -10,13 +10,15 @@ function App() {
   const [username, setUserName] = useState("");
   const [room, setRoom] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [whoIsTyping, setWhoIsTyping] = useState('');
+  const [whoIsTyping, setWhoIsTyping] = useState("");
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-  const CONNECTION_PORT = window.location.host === "localhost:3000" ? 'localhost:3001/' : 'https://live-chat-backend.onrender.com/'
-  const [userJoined, setUserJoined] = useState('');
+  const CONNECTION_PORT =
+    window.location.host === "localhost:3000"
+      ? "localhost:3001/"
+      : "https://live-chat-backend.onrender.com/";
+  const [userJoined, setUserJoined] = useState("");
   const [showUserJoined, setShowUserJoined] = useState(false);
-
 
   useEffect(() => {
     socket = io(CONNECTION_PORT);
@@ -29,20 +31,22 @@ function App() {
       setIsTyping(false);
     });
     if (messageList.length)
-      document.getElementById(`message-${messageList.length - 1}`).scrollIntoView(); //scroll down to latest chat
+      document
+        .getElementById(`message-${messageList.length - 1}`)
+        .scrollIntoView(); //scroll down to latest chat
   }, [messageList]);
 
   useEffect(() => {
     setTimeout(() => {
       setIsTyping(false);
     }, 5000);
-  }, [isTyping])
+  }, [isTyping]);
 
   useEffect(() => {
     setTimeout(() => {
       setShowUserJoined(false);
     }, 2000);
-  }, [showUserJoined])
+  }, [showUserJoined]);
 
   if (socket) {
     socket.on("other_user_typing", (data) => {
@@ -69,7 +73,7 @@ function App() {
   };
 
   const sendMessage = async (e) => {
-    if (message !== '') {
+    if (message !== "") {
       e.preventDefault();
 
       let messageContent = {
@@ -88,32 +92,45 @@ function App() {
   return (
     <div className="App">
       {!loggedIn ? (
-        <div className="login">
-          <div className="inputs">
-            <input
-              type="text"
-              value={username}
-              name=""
-              placeholder="Enter your name"
-              onChange={(e) => {
-                setUserName(e.target.value);
-              }}
-              required
-              autoFocus
-            />
-            <input
-              type="text"
-              value={room}
-              name=""
-              placeholder="Enter room ID"
-              onChange={(e) => {
-                setRoom(e.target.value);
-              }}
-              required
-            />
+        <>
+          <div className="info">
+            <p>
+              {" "}
+              <i className="fa-solid fa-circle-info fa-lg"></i> Enter any room
+              id and share the same with your friends or family to chat with
+              them
+            </p>
+            <p>
+              Happy Chatting!! <i className="fa-regular fa-face-smile fa-lg"></i>
+            </p>
           </div>
-          <button onClick={connectToRoom}>Start chatting</button>
-        </div>
+          <div className="login">
+            <div className="inputs">
+              <input
+                type="text"
+                value={username}
+                name=""
+                placeholder="Enter your name"
+                onChange={(e) => {
+                  setUserName(e.target.value);
+                }}
+                required
+                autoFocus
+              />
+              <input
+                type="text"
+                value={room}
+                name=""
+                placeholder="Enter room ID"
+                onChange={(e) => {
+                  setRoom(e.target.value);
+                }}
+                required
+              />
+            </div>
+            <button onClick={connectToRoom}>Start chatting</button>
+          </div>
+        </>
       ) : (
         <Chat
           username={username}
@@ -128,7 +145,6 @@ function App() {
           userJoined={userJoined}
           showUserJoined={showUserJoined}
           setShowUserJoined={setShowUserJoined}
-
         />
       )}
     </div>

@@ -18,6 +18,14 @@ body{
   height: 100vh;
 }
 
+.info p{
+  text-align: center;
+  margin: 10px auto;
+}
+
+.info i{
+  color: rgba(0,0,0,0.7);
+}
 
 .login{
   display: flex;
