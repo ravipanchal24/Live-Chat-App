@@ -15,7 +15,7 @@ body{
   align-items: center;
   justify-content: center;
   height: --webkit-fill-available;
-  height: 100vh;
+  height: 100svh;
 }
 .info{
   background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
@@ -279,7 +279,7 @@ transition: transform ease-in-out 100ms;
   {
     .chat-container{
       margin: 0;
-      height: 100vh;
+      height: 100svh;
       width: 100%;
       border-radius: 0;
     }
