@@ -11,7 +11,6 @@ export const chatSlice = createSlice({
         showUserJoined: false,
         userDisconnected: '',
         showUserDisconnected: false,
-
     },
     reducers: {
         setIsTyping: (state, action) => {

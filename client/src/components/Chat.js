@@ -119,9 +119,6 @@ const Chat = ({ socket }) => {
       <div className="chat-header">
         <div className="header">
           <h3>Live Chat</h3>
-          <div className={`isTyping ${isTyping ? "visible" : "hidden"}`}>
-            {whoIsTyping}
-          </div>
         </div>
         <p>
           Username: <br></br>
@@ -164,14 +161,9 @@ const Chat = ({ socket }) => {
           </div>
         ))}
       </div>
-      {userJoined !== username && showUserJoined && (
-        <div className="room-join-msg">{userJoined} has joined the room</div>
-      )}
-      {showUserDisconnected && (
-        <div className="room-join-msg">
-          {userDisconnected} has left the room
-        </div>
-      )}
+      <div className={`isTyping ${isTyping ? "visible" : "hidden"}`}>
+        {whoIsTyping}
+      </div>
       <div className="chat-footer">
         <input
           type="text"
@@ -192,6 +184,14 @@ const Chat = ({ socket }) => {
           <i className="fa-solid fa-arrow-right fa-2x"></i>
         </button>
       </div>
+      {userJoined !== username && showUserJoined && (
+        <div className="room-join-msg">{userJoined} has joined the room</div>
+      )}
+      {showUserDisconnected && (
+        <div className="room-join-msg">
+          {userDisconnected} has left the room
+        </div>
+      )}
     </div>
   );
 };

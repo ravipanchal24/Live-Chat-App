@@ -239,6 +239,12 @@ transition: transform ease-in-out 100ms;
   margin: 0;
  }
 
+ .active-user-info{
+  color: green;
+  animation: fadeout 2500ms;
+  margin: 0;
+ }
+
  .isTyping{
   color: wheat;
   font-size: 14px;
